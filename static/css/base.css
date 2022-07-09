@@ -3,9 +3,22 @@ html{
 }
 
 body {
+    font-family: 'Lato';
+}
+
+.main-jumbo{
+    background-color: #ABB8C3;
+
+}
+
+.main-picture-area{
     background: url('/media/images/garden3.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Lato';
+}
+
+#main-jumbo{
+    margin-left:2rem;
+    width:25rem;
 }
