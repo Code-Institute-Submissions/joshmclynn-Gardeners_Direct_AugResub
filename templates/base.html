@@ -38,10 +38,10 @@
                 </li>
                 {% if user.is_authenticated %}
                   {% if request.user.is_superuser %}
-                  <li class="nav-item"><a href="{% url '' %}" class="nav-link">Manage Subscriptions</a></li>
+                  <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Manage Subscriptions</a></li>
                   {% endif %}
-                <li class="nav-item"><a href="{% url '' %}" class="nav-link">Your Profile</a></li>
-                <li class="nav-item"><a href="{% url '' %}" class="nav-link">Your Subscription</a></li>
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Your Profile</a></li>
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Your Subscription</a></li>
                 <li class="nav-item"><a href="{% url 'account_logout' %}" class="nav-link">Logout</a></li>
                 {% else %}
                 <li class="nav-item"><a href="{% url 'account_signup' %}" class="nav-link">Sign-Up</a></li>

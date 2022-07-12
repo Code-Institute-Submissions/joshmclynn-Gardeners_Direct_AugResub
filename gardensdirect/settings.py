@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
     'main',
+    'calculator',
+    'location_field.apps.DefaultConfig',
 ]
 
 MIDDLEWARE = [
