@@ -23,7 +23,7 @@ class UserProfile(models.Model):
         area = (self.garden_length * self.garden_width)
         pp2 = (area/14)
         price = (pp2*25)
-        self.quote = price
+        self.quote = round(price,2)
         
            
         super().save(*args, **kwargs)
