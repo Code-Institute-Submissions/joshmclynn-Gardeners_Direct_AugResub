@@ -27,6 +27,7 @@ def profile(request):
     
     }
     
+    
     return render(request,template,context)
 
 # Create your views here.

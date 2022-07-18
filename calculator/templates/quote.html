@@ -3,9 +3,11 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div id = form>
+
     <h1>£{{ total }}</h1>
-</div>
+
+
+<button class="btn btn-black rounded-0 text-uppercase float-right"><a href = "{% url 'home' %}" type="submit">Proceed to Checkout</a></button>
 
 
 {% endblock %}

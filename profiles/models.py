@@ -12,15 +12,23 @@ class UserProfile(models.Model):
     phoneNumber = models.CharField(max_length=20, null=True,blank=True)
     First_line_address = models.CharField(max_length=80,null=True,blank=True)
     Post_code = models.CharField(max_length=20,null=True,blank=True)
-    garden_width = models.FloatField(default=0)
-    garden_length = models.FloatField(default=0)
+    garden_width = models.FloatField()
+    garden_length = models.FloatField()
     irrigation = models.BooleanField(default=False)
     grass = models.BooleanField(default=False)
-    
-    
-    def __str__(self):
-        return self.user.username
-    
+    quote = models.FloatField(editable=True)
+        
+    def save(self, *args, **kwargs):
+            
+        area = (self.garden_length * self.garden_width)
+        pp2 = (area/14)
+        price = (pp2*25)
+        self.quote = price
+        
+           
+        super().save(*args, **kwargs)
+
+   
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
