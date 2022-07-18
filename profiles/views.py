@@ -14,7 +14,7 @@ def profile(request):
         form = UserProfileForm(request.POST,instance=profile)
         if form.is_valid():
             form.save()
-            message.success(request,'Profile updated Successfully')##sweetify
+            messages.success(request, 'Profile updated successfully')
         else:
             messages.error(request,
                            ('update failed'))
@@ -24,6 +24,7 @@ def profile(request):
     template = 'profiles/profile.html'
     context = {
         'form':form,
+    
     }
     
     return render(request,template,context)

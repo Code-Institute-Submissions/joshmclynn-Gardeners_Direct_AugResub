@@ -12,7 +12,10 @@ class UserProfile(models.Model):
     phoneNumber = models.CharField(max_length=20, null=True,blank=True)
     First_line_address = models.CharField(max_length=80,null=True,blank=True)
     Post_code = models.CharField(max_length=20,null=True,blank=True)
-    
+    garden_width = models.FloatField(default=0)
+    garden_length = models.FloatField(default=0)
+    irrigation = models.BooleanField(default=False)
+    grass = models.BooleanField(default=False)
     
     
     def __str__(self):

@@ -1,59 +1,39 @@
 from django.shortcuts import render
-from .forms import subscriptioncalculator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from .models import sub_user_details
 from django.contrib.auth import get_user_model
-
+from profiles.models import UserProfile
+import math
 
 
 @login_required
 def quote(request):
-    if request.method == 'POST':
-        form = subscriptioncalculator(request.POST)
-        
-        if form.is_valid():
-            form.save(request)
-            return render('quote_amount.html')##quote())
-        
+    pph = 25
+    onehrarea = 14
+    iri = 5
+    grs = 5
+    profile = UserProfile.objects.get(user=request.user)
+    length = profile.garden_length
+    width = profile.garden_width
+    irrigation = profile.irrigation
+    grass = profile.grass
+    area = math.ceil((width*length)/onehrarea)
+    print(area)
+    if (area<=1):
+        total=pph
     else:
-        form = subscriptioncalculator()   
-
-    return render(request,'quote.html', {'form':form})
-
-
-
-
-def quotation(request):
-        context = {}
-        context = sub_user_details.objects.values()
-        print(context)
-        total_area = (request.user.garden_length*request.user.garden_width)
-        irrigation_price = 20
-        grass_price = 5
-        average_size = 14
-        price = 25
-        area_cost = 0
-        tot=(total_area/average_size)
-        if tot<=average_size:
-            area_cost = 25
-        else:
-            area_cost = (tot*price)
-        if irrigation == True:
-            area_cost +=irrigation_price
-        if grass ==True:
-            area_cost +=grass_price
-            
-            
-        data = area_cost    
-            
-        return render(request,'quote_amount.html', {'data':data})
-
-
-
-
-##def quote():
+        total=(area*pph)
+        print(total)
+    if (irrigation==True):
+        total=(total+iri)
+    if (grass==True):
+        total=(total+grs)
+        
     
-
-   
-# Create your views here.
+     
+    ##print(UserProfile())
+    ##print(request.user.garden_length)
+   ## length ={}
+    
+   ## print(user)
+    return total,render(request,'quote.html',{'total':total})

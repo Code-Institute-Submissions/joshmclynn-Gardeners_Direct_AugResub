@@ -17,4 +17,8 @@ class UserProfileForm(forms.ModelForm):
             'phone_number': 'Phone Number',
             'postcode': 'Postal Code',
             'default_street_address1': 'Street Address 1',
+            'garden_width':'What is the width of your garden in meters',
+            'garden_length':'What is the length of your garden in meters',
+            'irrigation':'Does your garden have irrigation',
+            'grass':'Does your garden have grass',
         }
