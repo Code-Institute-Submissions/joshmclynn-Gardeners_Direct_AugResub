@@ -14,8 +14,7 @@ def add_quote_to_sub_user(sender,instance,created,**kwargs):
         
     
     
-    
-    
-post_save.connect(add_quote_to_sub_user,sender = UserProfile)
+## creates, updates and deletes when UserProfile model is save()
+
 
 
