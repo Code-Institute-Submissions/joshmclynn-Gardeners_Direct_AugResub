@@ -5,11 +5,11 @@ from profiles.models import UserProfile
 
 
 
-class checkout(forms.ModelForm):
+class checkout_form(forms.ModelForm):
    
     class Meta:
         model = sub_user_details
-        exclude = ('user','quote')
+        exclude = ('user','subscription_cost','subscription_number')
 
     def __init__(self, *args, **kwargs):
         """
