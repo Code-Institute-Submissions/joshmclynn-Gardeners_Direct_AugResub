@@ -19,7 +19,7 @@ class sub_user_details(models.Model):
     subscription_number = models.CharField(max_length=32, null=False, editable= False)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     subscription_cost = models.FloatField(default=0)
-    
+    paid = models.BooleanField(default=False)
     
     
     def _generate_subscription_number(self, *args, **kwargs):

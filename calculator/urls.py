@@ -7,7 +7,7 @@ from .import views
 urlpatterns = [
     
     path('', views.quote, name = 'quote'),
-    path('checkout/',views.checkout, name = 'checkout'),
+    path('checkout/',views.checkout_user, name = 'checkout')
    
     
 ]

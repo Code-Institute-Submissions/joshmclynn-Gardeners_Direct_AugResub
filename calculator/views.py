@@ -5,8 +5,10 @@ from django.contrib.auth import get_user_model
 from .models import sub_user_details
 from django.shortcuts import get_object_or_404
 from profiles.models import UserProfile
-from .forms import checkout_form
+from django.conf import settings
 import math
+import stripe
+
 
 
 
@@ -23,21 +25,37 @@ def quote(request):
     
     
          
-@login_required        
-def checkout(request):
+
+
+
+
+
+
+@login_required
+def checkout_user(request):
     
-    profile = get_object_or_404(sub_user_details,user=request.user,subscription_cost=request.quote)
     
-    if request.method=='POST':
-        form = checkout_form(request.POST,profile=instance)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Profile updated successfully')
-        else:
-            messages.error(request,
-                           ('update failed'))
+    if request.user.is_authenticated:
+        user_details = sub_user_details.objects.get(user=request.user)
+        user_address = UserProfile.objects.get(user=request.user)
+        
+        form_data = {
+            'username': user_details.user,
+            'quote': user_details.subscription_cost,
+            'address':user_address.First_line_address
+        
+            }
+        
+        
+    
+        template = 'checkout.html'
+        context = {
+            'order_form':form_data,
+            'stripe_public_key':'pk_test_51LNIUlAbUEDkhRpYcKIlXfwwetfZO0yrL7CogWC0NNu5wRXHohbtEg48YfOb8ceryEElipqo7lg1MuqD5vsT1T5I00VpXiJ3qR',
+            'client_secret':'test client secret'
+        }
+    
+        return render(request,template,context)
     else:
-        form = checkout_form(instance=profile)
-    return render(request,'checkout.html',{'form':form})
-    
+        return redirect(request, 'accounts/signup.html')
     

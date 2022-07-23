@@ -24,10 +24,12 @@ class UserProfile(models.Model):
     def save(self, *args, **kwargs):
        
         area = (self.garden_length * self.garden_width)
-        pp2 = (area/14)
-        price = (pp2*25)
-        self.quote = round(price,2)
-        
+        if area > 14:
+            pp2 = (area/14)
+            price = (pp2*25)
+            self.quote = round(price,2)
+        else:
+            self.quote = 25
            
         super().save(*args, **kwargs)
 
