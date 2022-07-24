@@ -34,8 +34,6 @@ def cache_checkout_data(request):
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
-            'quote': user_details.subscription_cost,
-            'sub_num': user_details.subscription_number,
             'username': request.user,
         })
         return HttpResponse(status=200)
