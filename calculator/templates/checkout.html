@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-<form action="{% url 'home' %}" method="POST" id="payment-form">
+<form action="{% url 'checkout' %}" method="POST" id="payment-form">
     {% csrf_token %}
     <fieldset class="rounded px-3 mb-5">
         <legend class="fieldset-label small text-black px-2 w-auto">Subscription Details</legend>
@@ -28,11 +28,8 @@
 
     <div class="submit-button text-right mt-5 mb-2">                    
         
-        <button id="submit-button" class="btn btn-black rounded-0">
+        <button id="submit-button" class="btn btn-black rounded-0" href="{% url 'home' %}">
             <span class="font-weight-bold">Complete Order</span>
-            <span class="icon">
-                <i class="fas fa-lock"></i>
-            </span>
         </button>
         <p class="small text-danger my-0">
             <span class="icon">
