@@ -14,7 +14,6 @@
     {{ order_form.quote }}
 </fieldset>
 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-    {% csrf_token %}
     
     
     <fieldset class="px-3">

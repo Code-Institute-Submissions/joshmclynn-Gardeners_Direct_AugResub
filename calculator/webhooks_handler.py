@@ -31,9 +31,9 @@ class stripe_wh_handler:
         """
         
         return HttpResponse(
-            content=(f'Webhook received: {event["type"]} | SUCCESS: '
-                         'Verified order already in database'),
-            status=200)
+            content=(f'Webhook received: {event["type"]} | Fail: '
+                         ''),
+            status=200)redirect(redirect('/checkout_success'))
         
 
     def handle_payment_intent_payment_failed(self, event):
@@ -42,4 +42,4 @@ class stripe_wh_handler:
         """
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
-            status=200)
+            status=200)redirect('/')
