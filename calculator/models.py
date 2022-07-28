@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
 from django.db.models import Model
-from django.db import models
+
 from django.contrib.auth.models import User
 from profiles.models import UserProfile
 from django.dispatch import receiver
@@ -16,7 +16,7 @@ from profiles.models import UserProfile
 class sub_user_details(models.Model):
     
     
-    subscription_number = models.CharField(max_length=32, null=False, editable= False)
+    subscription_number = models.CharField(max_length=32, null=False, editable= False, unique=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     subscription_cost = models.FloatField(default=0)
     paid = models.BooleanField(default=False)

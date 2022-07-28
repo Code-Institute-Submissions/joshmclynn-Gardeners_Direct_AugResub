@@ -3,9 +3,40 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div id="subs-price-container">
-    <h1>Your Subscription will be £{{ total }} for one visit a month</h1>
-    <button class="btn btn-black rounded-0 text-uppercase float-right"><a href = "{% url 'checkout' %}" type="submit">Proceed to Checkout</a></button>
+
+<div class="col-lg-6 col-xl-4">
+    <div class="card mb-5 mb-xl-0">
+        <div class="card-body p-5">
+            <div class="small text-uppercase fw-bold">
+                <i class="bi bi-star-fill text-warning"></i>
+                Pro
+            </div>
+            <div class="mb-3">
+                
+                <span class="display-4 fw-bold">£ {{ total }}
+                
+                </span>
+                <span class="text-muted">/ mo.</span>
+            </div>
+            <ul class="list-unstyled mb-4">
+                <li class="mb-2">
+                    <i class="bi bi-check text-primary"></i>
+                    <strong>2 Visits a Month</strong>
+                </li>
+                <li class="mb-2">
+                    <i class="bi bi-check text-primary"></i>
+                    Free Waste Collection
+                </li>
+            </ul>
+            <div class="d-grid"><a class="btn btn-primary" href="{% url 'checkout' %}">Pay Now</a></div>
+        </div>
+    </div>
+</div>
+<div id="extras">
+    <h1>Why not add some extra items</h1>
+    <div>{% for data in extras %}
+        <h2>{{ data.product }}</h2>
+        {% endfor %}</div>
 </div>
 
 

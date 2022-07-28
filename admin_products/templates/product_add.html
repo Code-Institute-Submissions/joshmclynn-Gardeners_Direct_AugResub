@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<h1>hello</h1>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <p class="text-muted"></p>
+        <form class="mt-3" action="{% url 'site_owner' %}" method="POST" id="add_product_form">
+            {% csrf_token %}
+            {{ form |crispy }}
+            <button class="btn btn-black rounded-0 text-uppercase float-right">Add Product</button>
+        </form>
+    </div>
+</div>
+{% for data in product_details %}
+
+<div class="card mb-5 mb-xl-0">
+    <div class="card-body p-5">
+        <div class="small text-uppercase fw-bold">
+            <i class="bi bi-star-fill text-warning"></i>
+            {{ data.product }}
+        </div>
+        <div class="mb-3">
+            
+            <span class="display-4 fw-bold">£ {{ total }}
+            
+            </span>
+            <span class="text-muted">/ mo.</span>
+        </div>
+        <ul class="list-unstyled mb-4">
+            <li class="mb-2">
+                <i class="bi bi-check text-primary"></i>
+                <strong>{{ data.description }}</strong>
+            </li>
+            <li class="mb-2">
+                <i class="bi bi-check text-primary"></i>
+                {{ data.price }}
+            </li>
+        </ul>
+        <div class="d-grid"><a class="btn btn-primary" href="{% url 'checkout' %}">Pay Now</a></div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

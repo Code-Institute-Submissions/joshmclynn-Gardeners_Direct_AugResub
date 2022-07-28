@@ -16,6 +16,7 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
+            return redirect('/')
         else:
             messages.error(request,
                            ('update failed'))

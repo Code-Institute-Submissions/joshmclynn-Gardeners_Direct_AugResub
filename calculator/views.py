@@ -7,6 +7,7 @@ from .models import sub_user_details
 from django.shortcuts import get_object_or_404
 from profiles.models import UserProfile
 from django.conf import settings
+from admin_products.models import Products
 import math
 import stripe
 import sweetify
@@ -20,16 +21,20 @@ import sweetify
 def quote(request):
     
     user_total = UserProfile.objects.get(user=request.user)
-    
+    extras = Products.objects.all()
     total=user_total.quote
+    context = {
+        extras:'extras',
+        total:'total'
+    }
 
-    return render(request, 'quote.html',{'total':total})
+    return render(request, 'quote.html',context)
     
     
          
 @require_POST
 def cache_checkout_data(request):
-    user_details = sub_user_details.objects.get(user=request.user)
+    
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -51,46 +56,74 @@ def cache_checkout_data(request):
 def checkout_user(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     stripe_public_key = settings.STRIPE_PUBLISHABLE_KEY
-    user_details = sub_user_details.objects.get(user=request.user)
-    
-    if (user_details.subscription_cost ==0):
+    user_details = UserProfile.objects.get(user=request.user)
+    if (user_details.quote ==0):
         sweetify.warning(request, """Your subscription doesnt exist!, try entering
                          details in the profile section!""")
     
     else:
         if request.user.is_authenticated:
-            user_details = sub_user_details.objects.get(user=request.user)
+            
             user_address = UserProfile.objects.get(user=request.user)
         
-            form_data = {
-                'username': user_details.user,
-                'quote': user_details.subscription_cost,
-                'address':user_address.First_line_address
+            
         
-                }
-        
-            total = user_details.subscription_cost
+            total = user_details.quote
             stripe_total = round(total *100)
             stripe.api_key = stripe_secret_key
             intent = stripe.PaymentIntent.create(
                 
-                amount=stripe_total,
+            amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
             description={
                 user_details.user,
-                user_details.subscription_number
+                user_details.First_line_address
             }
             )
             
     
             template = 'checkout.html'
             context = {
-                'order_form':form_data,
+                
                 'stripe_public_key':stripe_public_key,
                 'client_secret':intent.client_secret,
             }
-    
+            
+            
+
             return render(request,template,context)
         else:
             return redirect(request, 'accounts/signup.html')
     
+
+
+
+def checkout_success(request, order_number):
+    """
+    Handle successful checkouts
+    """
+    
+
+    if request.user.is_authenticated:
+        
+        user = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        object_sub = sub_user_details(user=request.user,subscription_cost=user.quote,paid=True)
+        
+        object_sub.save()
+
+        # Save the user's info
+        
+
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
+
+   
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        sub_user_details.objects.get(user=request.user)
+    }
+
+    return render(request, template,context)

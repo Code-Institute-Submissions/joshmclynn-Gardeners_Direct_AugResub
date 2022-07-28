@@ -52,10 +52,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+    'sweetify',
     'main',
     'calculator',
     'profiles',
-    'admin_portal',
+    'admin_products',
     'location_field.apps.DefaultConfig',
 ]
 

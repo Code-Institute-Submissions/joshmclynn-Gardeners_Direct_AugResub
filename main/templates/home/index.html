@@ -1,70 +1,51 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class = "main-picture-area">
-<div class="jumbotron jumbotron-fluid" id="main-jumbo">
-  <div class="container">
-    <h1 class="display-4"><strong>Subscription Based</strong></h1>
-    <h1 class="display-4"><strong>Gardening</strong></h1>
-    <p class="lead">Get custom quotes for all of your gardening needs.</p>
-  </div>
-</div>
-</div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">How it Works</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>You tell us the type of garden you have, the total area, and how many times you want a visit,
-            we then create an instant personal quote.
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-  <div class="album py-5 bg-light" id="main_tabs">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src = 'media\images\gardening2.jpg' alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;">
-            <div class="card-body">
-              <p class="card-text">Pricing Based on the area of your gardening allowing for a transparent pricing structure.</p>
-            </div>
+<header class="bg-dark py-5">
+  <div class="container px-5">
+      <div class="row gx-5 align-items-center justify-content-center">
+          <div class="col-lg-8 col-xl-7 col-xxl-6">
+              <div class="my-5 text-center text-xl-start">
+                  <h1 class="display-5 fw-bolder text-white mb-2">Subscription Based Gardening</h1>
+                  <p class="lead fw-normal text-white-50 mb-4">An easy and efficient way to have a gardener</p>
+                  <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                      <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'account_signup' %}"></a>
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top"  src = 'media\images\gardening1.jpg' alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" >
-            <div class="card-body">
-              <p class="card-text">Weekly or Monthly Subscriptions available.</p>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Find out more about our subscriptions here!
-              </button>
-
-            </div>
-          </div>
-          
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src = 'media\images\gardening3.jpg' alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;">
-            <div class="card-body">
-              <p class="card-text">Our contractors have been hand selected by us in order to provide a complete and proffessional service</p>
-            </div>
-          </div>
-        </div>
+          <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="" alt="..." /></div>
       </div>
-    </div>
   </div>
-
+</header>
+<section class="py-5" id="features">
+  <div class="container px-5 my-5">
+      <div class="row gx-5">
+          <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">About us</h2></div>
+          <div class="col-lg-8">
+              <div class="row gx-5 row-cols-1 row-cols-md-2">
+                  <div class="col mb-5 h-100">
+                      <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                      <h2 class="h5">Flexible</h2>
+                      <p class="mb-0">Just come back to the site every month to purchase another month.</p>
+                  </div>
+                  <div class="col mb-5 h-100">
+                      <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                      <h2 class="h5">Custom Quotes</h2>
+                      <p class="mb-0">Quotes based on the size of your garden</p>
+                  </div>
+                  <div class="col mb-5 mb-md-0 h-100">
+                      <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                      <h2 class="h5">Professionalism</h2>
+                      <p class="mb-0">Fully qualified and Knowledgable</p>
+                  </div>
+                  <div class="col h-100">
+                      <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                      <h2 class="h5">Yew Tree</h2>
+                      <p class="mb-0">hmmmmkkkkk</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 {% endblock %}
