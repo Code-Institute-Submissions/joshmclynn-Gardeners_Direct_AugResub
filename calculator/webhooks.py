@@ -36,7 +36,7 @@ def webhook(request):
         return HttpResponse(content=e, status=400)
 
     # Set up a webhook handler
-    handler = StripeWH_Handler(request)
+    handler = stripe_wh_handler(request)
 
     # Map webhook events to relevant handler functions
     event_map = {
