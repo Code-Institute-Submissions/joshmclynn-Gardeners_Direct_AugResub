@@ -20,9 +20,9 @@ import sweetify
 @login_required
 def quote(request):
     
-    user_total = UserProfile.objects.get(user=request.user)
+    total = UserProfile.objects.get(user=request.user)
     extras = Products.objects.all()
-    total=user_total.quote
+    
     context = {
         extras:'extras',
         total:'total'
@@ -64,9 +64,8 @@ def checkout_user(request):
     else:
         if request.user.is_authenticated:
             
-            user_address = UserProfile.objects.get(user=request.user)
         
-            
+           
         
             total = user_details.quote
             stripe_total = round(total *100)
@@ -98,7 +97,7 @@ def checkout_user(request):
 
 
 
-def checkout_success(request, order_number):
+def checkout_success(request):
     """
     Handle successful checkouts
     """
@@ -111,13 +110,6 @@ def checkout_success(request, order_number):
         object_sub = sub_user_details(user=request.user,subscription_cost=user.quote,paid=True)
         
         object_sub.save()
-
-        # Save the user's info
-        
-
-    messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
 
    
 

@@ -25,13 +25,7 @@
             <i class="bi bi-star-fill text-warning"></i>
             {{ data.product }}
         </div>
-        <div class="mb-3">
-            
-            <span class="display-4 fw-bold">£ {{ total }}
-            
-            </span>
-            <span class="text-muted">/ mo.</span>
-        </div>
+        
         <ul class="list-unstyled mb-4">
             <li class="mb-2">
                 <i class="bi bi-check text-primary"></i>
@@ -42,7 +36,7 @@
                 {{ data.price }}
             </li>
         </ul>
-        <div class="d-grid"><a class="btn btn-primary" href="{% url 'checkout' %}">Pay Now</a></div>
+        <div class="d-grid"><a class="btn btn-primary" href="{% url 'checkout' %}">Delete Product</a></div>
     </div>
 </div>
 {% endfor %}
