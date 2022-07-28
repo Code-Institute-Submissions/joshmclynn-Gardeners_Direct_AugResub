@@ -42,4 +42,4 @@ class StripeWh_Handler:
         """
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
-            status=200)redirect('/')
+            status=200)
