@@ -8,7 +8,7 @@ from profiles.models import UserProfile
 
 
 
-class StripeWh_Handler:
+class stripe_wh_handler:
     """Handle Stripe webhooks"""
 
     def __init__(self, request):
