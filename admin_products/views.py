@@ -38,14 +38,5 @@ def site_owner(request):
 
 
 
-def delete_item(request):
+##def delete_item(request):
     
-    
-    
-
-            
-
-# Create your views here.
-
-
-
