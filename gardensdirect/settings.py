@@ -187,7 +187,7 @@ if 'USE_AWS' in os.environ:
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     STATICFILES_LOCATION = 'static'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIA_FILES_STORAGE = 'media'
+    MEDIAFILES_STORAGE = 'media'
     
     STATIC_URL = f'https:///{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https:///{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
