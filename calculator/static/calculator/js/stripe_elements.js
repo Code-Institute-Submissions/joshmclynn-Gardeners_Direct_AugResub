@@ -49,6 +49,8 @@ form.addEventListener('submit', function(ev) {
     $('#submit-button').attr('disabled', true);
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
+    var url = '/quote/checkout_success.html'
+    $.post(url, postData).done(function (){
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
@@ -68,9 +70,8 @@ form.addEventListener('submit', function(ev) {
             $('#submit-button').attr('disabled', false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {
-                
                 form.submit();
             }
         }
     });
-});
+})});
