@@ -1,13 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,reverse,get_object_or_404
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib.auth import get_user_model
 from .models import sub_user_details
-from django.shortcuts import get_object_or_404
 from profiles.models import UserProfile
 from django.conf import settings
 from admin_products.models import Products
+from .forms import sub_address_form
 import math
 import stripe
 import sweetify
@@ -57,42 +57,40 @@ def checkout_user(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     stripe_public_key = settings.STRIPE_PUBLISHABLE_KEY
     user_details = UserProfile.objects.get(user=request.user)
-    if (user_details.quote ==0):
-        sweetify.warning(request, """Your subscription doesnt exist!, try entering
-                         details in the profile section!""")
-    
-    else:
-        if request.user.is_authenticated:
+    if request.method=='POST':
+        form = sub_address_form()
+        if form.is_valid():
+            form.save()
+        return redirect(reverse('checkout_success'))
+              
             
-        
-           
-        
-            total = user_details.quote
-            stripe_total = round(total *100)
-            stripe.api_key = stripe_secret_key
-            intent = stripe.PaymentIntent.create(
-                
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-            description={
-                user_details.user,
-                user_details.First_line_address
+            
+            
+    total = user_details.quote
+    stripe_total = round(total *100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(   
+    amount=stripe_total,
+    currency=settings.STRIPE_CURRENCY,
+    description={
+        user_details.user,
+        user_details.First_line_address
             }
-            )
+    )
+    form = sub_address_form()
+    profile = get_object_or_404(UserProfile,user=request.user)
+    print(profile)
+    template = 'checkout.html'
+    context = {
+            'form':form,
+            'stripe_public_key':stripe_public_key,
+            'client_secret':intent.client_secret,
+            }   
             
+    return render(request,template,context)
+        
     
-            template = 'checkout.html'
-            context = {
-                
-                'stripe_public_key':stripe_public_key,
-                'client_secret':intent.client_secret,
-            }
-            
-            
-
-            return render(request,template,context)
-        else:
-            return redirect(request, 'accounts/signup.html')
+    
     
 
 
@@ -113,7 +111,7 @@ def checkout_success(request):
 
    
 
-    template = 'quote/checkout_success.html'
+    template = 'checkout_success.html'
     context = {
         sub_user_details.objects.get(user=request.user)
     }

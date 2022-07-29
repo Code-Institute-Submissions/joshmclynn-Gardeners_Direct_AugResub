@@ -7,15 +7,10 @@
 {% endblock %}
 
 {% block content %}
-<fieldset class="rounded px-3 mb-5">
-    <legend class="fieldset-label small text-black px-2 w-auto">Subscription Details</legend>
-    {{ order_form.username }}
-    {{ order_form.address }}
-    {{ order_form.quote }}
-</fieldset>
 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
     
     {% csrf_token %}
+    {{ form }}
     <fieldset class="px-3">
         <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
         <!-- A Stripe card element will go here -->

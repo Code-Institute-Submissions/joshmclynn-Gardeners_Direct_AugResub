@@ -1,9 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.template.loader import render_to_string
 from django.conf import settings
 from .models import sub_user_details
 from profiles.models import UserProfile
-from .views import checkout_success
+
 
 
 
@@ -30,9 +30,9 @@ class stripe_wh_handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
-        if (event=='payment_intent.succeeded'):
-            checkout_success()
-        return HttpResponse(
+        
+            
+        return HttpResponseRedirect(redirect_to='/')(
             content=(f'Webhook received: {event["type"]} | Fail: '
                          ''),
             status=200)
