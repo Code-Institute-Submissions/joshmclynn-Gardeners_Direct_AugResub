@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile,User
 from .forms import UserProfileForm
+from calculator.models import sub_user_details
 import sweetify
 
 
@@ -11,7 +12,7 @@ import sweetify
 def profile(request):
     
     profile = get_object_or_404(UserProfile,user=request.user)
-    
+    print(profile)
     if request.method=='POST':
         form = UserProfileForm(request.POST,instance=profile)
         if form.is_valid():
@@ -24,9 +25,19 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
         
+    if sub_user_details.objects.filter(user__username__contains=profile.user):
+        subs = get_object_or_404(sub_user_details,user=request.user)
+        load_sub = subs
+        
+        
+    else:
+        load_sub = 'Your Dont have a purchase yet'
+    
+        
     template = 'profiles/profile.html'
     context = {
         'form':form,
+        'load_sub':load_sub
         
     }
     

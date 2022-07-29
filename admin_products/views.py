@@ -29,6 +29,7 @@ def site_owner(request):
             sweetify.error(request, title='Product already exists')
     
     subscribers = sub_user_details.objects.all()
+    
     product_details = Products.objects.all()
     context={'form':form,
              'product_details':product_details,
