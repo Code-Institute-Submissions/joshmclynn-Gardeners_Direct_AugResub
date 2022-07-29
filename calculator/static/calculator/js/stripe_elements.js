@@ -47,13 +47,13 @@ form.addEventListener('submit', function(ev){
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
 
-    let saveInfo = Boolean($('#id-save-info').attr('checked'));
+    
     // From using {% csrf_token %} in the form
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     let postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
-        'save_info': saveInfo,
+        
     };
     let url = '/quote/checkout_success/';
 
