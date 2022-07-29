@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 from .models import sub_user_details
 from profiles.models import UserProfile
+from .views import checkout_success
 
 
 
@@ -29,7 +30,7 @@ class stripe_wh_handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
-        
+        checkout_success(request)
         return HttpResponse(
             content=(f'Webhook received: {event["type"]} | Fail: '
                          ''),
