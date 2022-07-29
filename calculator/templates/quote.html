@@ -4,7 +4,8 @@
 
 {% block content %}
 
-<div class="col-lg-6 col-xl-4">
+<section class="bg-light py-5">
+<div class="col-lg-8 col-xl-4">
     <div class="card mb-5 mb-xl-0">
         <div class="card-body p-5">
             <div class="small text-uppercase fw-bold">
@@ -12,8 +13,8 @@
                Your Monthly Price
             </div>
             <div class="mb-3">
-                {{ total.quote }}
-                <span class="display-4 fw-bold">£ {{ total.quote }}
+                
+                <span class="display-4 fw-bold">£ {{ total }}
                 
                 </span>
                 <span class="text-muted">/ mo.</span>
@@ -32,12 +33,44 @@
         </div>
     </div>
 </div>
-<div id="extras">
-    <h1>Why not add some extra items</h1>
-    <div>{% for data in extras %}
-        <h2>{{ data.product }}</h2>
-        {% endfor %}</div>
+
+
+
+<div class="container px-5 my-5">
+    <div class="row gx-5">
+        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">About us</h2></div>
+        <div class="col-lg-8">
+            {% for data in product_details %}
+            <div class="row gx-6 row-cols-1 row-cols-md-2">
+                <div class="card mb-5 mb-xl-0">
+                    <div class="card-body p-5">
+                        <div class="small text-uppercase fw-bold">
+                            {{ data.id }}
+                            <em class="bi bi-star-fill text-warning"></em>
+                            {{ data.product }}
+                        </div>
+                        
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                <strong>{{ data.description }}</strong>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check text-primary"></i>
+                                {{ data.price }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>   
+                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
+
+</section>
+
 
 
 

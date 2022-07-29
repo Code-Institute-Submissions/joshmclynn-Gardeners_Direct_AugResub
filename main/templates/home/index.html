@@ -8,12 +8,10 @@
               <div class="my-5 text-center text-xl-start">
                   <h1 class="display-5 fw-bolder text-white mb-2">Subscription Based Gardening</h1>
                   <p class="lead fw-normal text-white-50 mb-4">An easy and efficient way to have a gardener</p>
-                  <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                      <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'account_signup' %}"></a>
-                  </div>
+                  
               </div>
           </div>
-          <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="" alt="..." /></div>
+          <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="{{ 'media/images/garden3.jpg' }}" alt="..." /></div>
       </div>
   </div>
 </header>
@@ -40,12 +38,29 @@
                   </div>
                   <div class="col h-100">
                       <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                      <h2 class="h5">Yew Tree</h2>
-                      <p class="mb-0">hmmmmkkkkk</p>
+                      <h2 class="h5">Daily Tips</h2>
+                      <p class="mb-0">Enter your email below for daily Tips on Gardening</p>
                   </div>
               </div>
           </div>
       </div>
   </div>
 </section>
+<aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
+    <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
+        <div class="mb-4 mb-xl-0">
+            <div class="fs-3 fw-bold text-white">Sign up for updates about our services</div>
+            
+        </div>
+        <div class="ms-xl-4">
+            <div class="input-group mb-2">
+                <form class="form-control" type="text" placeholder="Email address..." aria-label="Email address..." aria-describedby="button-newsletter" method="POST">
+                    {{ form }}
+                    </form>
+                <button class="btn btn-outline-light" id="button-newsletter" type="button">Sign up</button>
+            </div>
+            <div class="small text-white-50">We care about privacy, and will never share your data.</div>
+        </div>
+    </div>
+</aside>
 {% endblock %}

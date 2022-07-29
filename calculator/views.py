@@ -20,15 +20,15 @@ import sweetify
 @login_required
 def quote(request):
     
-    total = UserProfile.objects.get(user=request.user)
-    extras = Products.objects.all()
-    
+    total = UserProfile.objects.get(user=request.user).quote
+    product_details = Products.objects.all()
+    print(total)
     context = {
-        extras:'extras',
-        total:'total'
+        'product_details':product_details,
+        'total':total
     }
-
-    return render(request, 'quote.html',context)
+    template = 'quote.html'
+    return render(request, template, context)
     
     
          

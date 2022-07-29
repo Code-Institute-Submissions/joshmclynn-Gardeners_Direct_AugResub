@@ -41,4 +41,28 @@
     </div>
 </div>
 {% endfor %}
+{% for person in subscribers %}
+<div class="card mb-5 mb-xl-0">
+    <div class="card-body p-5">
+        <div class="small text-uppercase fw-bold">
+            {{ person.id }}
+            <em class="bi bi-star-fill text-warning"></em>
+            {{ person.user.username }}
+        </div>
+        
+        <ul class="list-unstyled mb-4">
+            <li class="mb-2">
+                <i class="bi bi-check text-primary"></i>
+                <strong>£{{ person.subscription_cost }}</strong>
+            </li>
+            <li class="mb-2">
+                <i class="bi bi-check text-primary"></i>
+                {{ person.user.username }}
+                
+            </li>
+        </ul>
+       
+    </div>
+</div>
+{% endfor %}
 {% endblock %}

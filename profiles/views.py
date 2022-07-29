@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile,User
 from .forms import UserProfileForm
+import sweetify
 
 
 
@@ -33,3 +34,13 @@ def profile(request):
     return render(request,template,context)
 
 # Create your views here.
+@login_required
+def delete_profile(request):
+    try:
+        a = User.objects.get(username=request.user)
+        a.delete()
+        sweetify.success(request, title='Your profile has been deleted!')
+    except User.DoesNotExist:
+        sweetify.error(request, title='Profile does not exist')
+
+    return redirect(to='index')
