@@ -113,7 +113,7 @@ def checkout_success(request):
 
    
 
-    template = 'checkout/checkout_success.html'
+    template = 'quote/checkout_success.html'
     context = {
         sub_user_details.objects.get(user=request.user)
     }
