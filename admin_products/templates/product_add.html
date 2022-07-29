@@ -22,6 +22,7 @@
 <div class="card mb-5 mb-xl-0">
     <div class="card-body p-5">
         <div class="small text-uppercase fw-bold">
+            {{ data.id }}
             <em class="bi bi-star-fill text-warning"></em>
             {{ data.product }}
         </div>
@@ -36,7 +37,7 @@
                 {{ data.price }}
             </li>
         </ul>
-        <div class="d-grid"><a class="btn btn-primary" href="{% url 'checkout' %}">Delete Product</a></div>
+        <div class="d-grid"><a class="btn btn-primary" href= "{% url 'delete' data.id %}" >Delete Product</a></div>
     </div>
 </div>
 {% endfor %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,reverse,get_object_or_404
 from .models import Products
 from .forms import admin_product_form
 from main import views
@@ -37,6 +37,10 @@ def site_owner(request):
     return render(request,template , context)
 
 
+def delete(request, id):
+    
+    data = get_object_or_404(Products, id=id)
+    data.delete()
+    return redirect('/site_owner') 
 
-##def delete_item(request):
     
