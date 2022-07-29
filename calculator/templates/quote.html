@@ -38,14 +38,14 @@
 
 <div class="container px-5 my-5">
     <div class="row gx-5">
-        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">About us</h2></div>
+        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">These Items can be discussed when you have your visit from your gardener</h2></div>
         <div class="col-lg-8">
             {% for data in product_details %}
             <div class="row gx-6 row-cols-1 row-cols-md-2">
                 <div class="card mb-5 mb-xl-0">
                     <div class="card-body p-5">
                         <div class="small text-uppercase fw-bold">
-                            {{ data.id }}
+                            
                             <em class="bi bi-star-fill text-warning"></em>
                             {{ data.product }}
                         </div>
@@ -57,7 +57,7 @@
                             </li>
                             <li class="mb-2">
                                 <i class="bi bi-check text-primary"></i>
-                                {{ data.price }}
+                                from £{{ data.price }}
                             </li>
                         </ul>
                     </div>

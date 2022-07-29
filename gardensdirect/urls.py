@@ -30,3 +30,5 @@ urlpatterns = [
     path('site_owner/',include('admin_products.urls'),)
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = "gardensdirect.views.page_not_found_view"

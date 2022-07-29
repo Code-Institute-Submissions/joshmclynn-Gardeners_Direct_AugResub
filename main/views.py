@@ -8,7 +8,7 @@ def index(request):
     form = newsletter_form(request.POST or None)
     if form.is_valid():
         form.save()
-    
+        return redirect('')
     
     context ={
         'form':form

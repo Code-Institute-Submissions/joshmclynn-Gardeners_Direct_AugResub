@@ -36,7 +36,7 @@
               </li>
               {% if user.is_authenticated %}
                 {% if request.user.is_superuser %}
-                <li class="nav-item"><a href="{% url 'site_owner' %}" class="nav-link">Manage Subscriptions</a></li>
+                <li class="nav-item"><a href="{% url 'site_owner' %}" class="nav-link">Management</a></li>
                 <li class="nav-item"><a href="{% url 'account_logout' %}" class="nav-link">Logout</a></li>
                 {% else %}
                 <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">Your Profile</a></li>
@@ -65,6 +65,6 @@
     
   </body>
   {% load sweetify %}
-      {% sweetify %}
+  {% sweetify %}
 
 </html>
