@@ -9,7 +9,7 @@ from calculator.webhooks_handler import stripe_wh_handler
 import stripe
 
 
-@require_POST
+
 @csrf_exempt
 def webhook(request):
     """Listen for webhooks from Stripe"""
