@@ -13,9 +13,9 @@
     {{ order_form.address }}
     {{ order_form.quote }}
 </fieldset>
-<form action="{% url 'checkout' %}" method="POST" id="payment-form">
+<form action="{% url 'quote' %}" method="POST" id="payment-form">
     
-    @csrftoken
+    {% csrf_token %}
     <fieldset class="px-3">
         <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
         <!-- A Stripe card element will go here -->
