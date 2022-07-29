@@ -30,7 +30,8 @@ class stripe_wh_handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
-    
+        if (event=='payment_intent.succeeded'):
+            checkout_success()
         return HttpResponse(
             content=(f'Webhook received: {event["type"]} | Fail: '
                          ''),

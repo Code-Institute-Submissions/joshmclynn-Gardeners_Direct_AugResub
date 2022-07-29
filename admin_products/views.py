@@ -41,6 +41,12 @@ def delete(request, id):
     
     data = get_object_or_404(Products, id=id)
     data.delete()
-    return redirect('/site_owner') 
+    return redirect('/site_owner')
+
+
+def edit(request,id):
+    
+    data = get_object_or_404(Products, id)
+     
 
     

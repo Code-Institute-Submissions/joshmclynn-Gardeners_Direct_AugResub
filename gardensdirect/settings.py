@@ -34,8 +34,11 @@ STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_CURRENCY = 'gbp'
 
+
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['gardeners-direct.herokuapp.com','127.0.0.1']
 
