@@ -2,7 +2,6 @@ from django import forms
 from .models import Products
 
 
-
 class admin_product_form(forms.ModelForm):
     class Meta:
         model = Products

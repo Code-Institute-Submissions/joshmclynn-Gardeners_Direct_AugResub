@@ -26,18 +26,18 @@
             <em class="bi bi-star-fill text-warning"></em>
             {{ data.product }}
         </div>
-        
+
         <ul class="list-unstyled mb-4">
             <li class="mb-2">
-                <i class="bi bi-check text-primary"></i>
+                <em class="bi bi-check text-primary"></em>
                 <strong>{{ data.description }}</strong>
             </li>
             <li class="mb-2">
-                <i class="bi bi-check text-primary"></i>
+                <em class="bi bi-check text-primary"></em>
                 {{ data.price }}
             </li>
         </ul>
-        <div class="d-grid"><a class="btn btn-primary" href= "{% url 'delete' data.id %}" >Delete Product</a></div>
+        <div class="d-grid"><a class="btn btn-primary" href="{% url 'delete' data.id %}">Delete Product</a></div>
     </div>
 </div>
 {% endfor %}
@@ -45,30 +45,30 @@
 <div class="card mb-5 mb-xl-0">
     <div class="card-body p-5">
         <div class="small text-uppercase fw-bold">
-            
+
             <em class="bi bi-star-fill text-warning"></em>
             <strong>User:{{ person.user }}</strong>
             {{ person.id }}
         </div>
-        
+
         <ul class="list-unstyled mb-4">
             <li class="mb-2">
-                <i class="bi bi-check text-primary"></i>
+                <em class="bi bi-check text-primary"></em>
                 <strong>£{{ person.subscription_cost }}</strong>
             </li>
             <li class="mb-2">
-                <i class="bi bi-check text-primary"></i>
+                <em class="bi bi-check text-primary"></em>
                 Subscription Number:{{ person.subscription_number }}
-                
+
             </li>
             <li class="mb-2">
-                <i class="bi bi-check text-primary"></i>
+                <em class="bi bi-check text-primary"></em>
                 Address:{{ person.address }}
-                
+
             </li>
         </ul>
-        <div class="d-grid"><a class="btn btn-primary" href= "{% url 'delete_sub' person.id %}" >Completed Job</a></div>
-       
+        <div class="d-grid"><a class="btn btn-primary" href="{% url 'delete_sub' person.id %}">Completed Job</a></div>
+
     </div>
 </div>
 {% endfor %}
