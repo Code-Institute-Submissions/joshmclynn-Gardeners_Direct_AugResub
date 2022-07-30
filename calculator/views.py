@@ -108,7 +108,7 @@ def checkout_success(request):
         object_sub = sub_user_details(user=request.user,subscription_cost=user.quote,paid=True)
         
         object_sub.save()
-
+        sweetify.success(request, title='Order Placed, we will be in touch to book a date')
    
 
     template = 'checkout_success.html'

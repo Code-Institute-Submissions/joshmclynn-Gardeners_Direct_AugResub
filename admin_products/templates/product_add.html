@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<h1>hello</h1>
+<h1>Update Products and Orders</h1>
 
 <div class="row">
     <div class="col-12 col-lg-6">
@@ -48,6 +48,7 @@
             
             <em class="bi bi-star-fill text-warning"></em>
             <strong>User:{{ person.user }}</strong>
+            {{ person.id }}
         </div>
         
         <ul class="list-unstyled mb-4">
@@ -66,6 +67,7 @@
                 
             </li>
         </ul>
+        <div class="d-grid"><a class="btn btn-primary" href= "{% url 'delete_sub' person.id %}" >Delete Order</a></div>
        
     </div>
 </div>
