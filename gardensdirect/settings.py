@@ -38,7 +38,7 @@ STRIPE_CURRENCY = 'gbp'
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['gardeners-direct.herokuapp.com','127.0.0.1']
 
