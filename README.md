@@ -1,6 +1,8 @@
 # Gardeners_Direct
 
 ![Homepage!](/media/screenshots/homepage.PNG "homepage")
+[LIVE LINK TO GARDENSDIRECT](https://gardeners-direct.herokuapp.com/)
+
 Gardeners Direct is a landscaping and gardening business, It provides garden maintenance based on a 'size of garden' model in order to give potential customers a fair and reflective price in order to carry out works. 
 
 ## Business Model
@@ -30,6 +32,10 @@ User Stories (Admin)-
 * As an Admin, I want to be able to remove products from the shop
 * As an Admin, I want to be able to see users who have purchesed services
 * As an Admin, I want to be able to delete users orders whom have been completed
+
+
+Agile methodology-
+* I tried to employ an agile method using a whiteboard where I would wipe off the task that had been completed in relation to the user story subsections. Although I tried to stick to it, I did find myself continueing with other tasks before completing the tasks that had been in the correct order
 
 ## Features
 ### HomePage
