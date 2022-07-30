@@ -54,10 +54,15 @@
         </div>
         <div class="ms-xl-4">
             <div class="input-group mb-2">
-                <form class="mt-3" action="{% url 'home' %}" method="POST">
+                <form class="mt-3" action="{% url 'email_add' %}" method="POST">
                     {% csrf_token %}
                     {{ form }}
-                    <button class="btn btn-black" type="button">Sign up</button>
+                    <button id="submit-button" class="btn btn-black rounded-0">
+                        <span class="font-weight-bold">Submit</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </button>
                 </form>
                 
             </div>

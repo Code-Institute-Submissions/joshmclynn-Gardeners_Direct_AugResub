@@ -79,9 +79,10 @@ def checkout_user(request):
     )
     form = sub_address_form()
     profile = get_object_or_404(UserProfile,user=request.user)
-    print(profile)
+    
     template = 'checkout.html'
     context = {
+            'profile':profile,
             'form':form,
             'stripe_public_key':stripe_public_key,
             'client_secret':intent.client_secret,

@@ -42,6 +42,7 @@ def delete(request, id):
     
     data = get_object_or_404(Products, id=id)
     data.delete()
+    sweetify.success(request, title='Product Deleted')
     return redirect('/site_owner')
 
 
@@ -50,6 +51,7 @@ def delete(request, id):
 def delete_sub(request, id):
     data = get_object_or_404(sub_user_details, id=id)
     data.delete()
+    sweetify.success(request, title='Order Deleted')
     return redirect('/site_owner')
         
 

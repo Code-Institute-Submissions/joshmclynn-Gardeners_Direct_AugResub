@@ -7,6 +7,9 @@
 {% endblock %}
 
 {% block content %}
+<div>
+    <h1>Your Total is {{ profile.quote }}</h1>
+</div>
 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
     
     {% csrf_token %}
