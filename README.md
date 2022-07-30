@@ -1,6 +1,6 @@
 # Gardeners_Direct
 
-
+![Homepage!](/media/screenshots/homepage.PNG "homepage")
 Gardeners Direct is a landscaping and gardening business, It provides garden maintenance based on a 'size of garden' model in order to give potential customers a fair and reflective price in order to carry out works. 
 
 ## Business Model
@@ -33,6 +33,7 @@ User Stories (Admin)-
 
 ## Features
 ### HomePage
+![Homepage!](/media/screenshots/homepage.PNG "Homepage")
 The homepage allows users to navigate through the application, with certain restrictions based on whether the user is logged in etc. In the navigation bar are links to:
 #### Non authenticated users:
 * Sign-up
@@ -46,18 +47,22 @@ The homepage allows users to navigate through the application, with certain rest
 * Log-Out
 There is also an email field form to add an email address to recieve any newsletters that may be available.
 ### User Profile
+![quote!](/media/screenshots/userprofile.PNG "profile")
 The user profile page, allows users to enter their details including address and contact number, users are also able to enter the dimensions of their garden and select whether their garden has grass and or irrigation, this information is then used to create a unique quote for the user.
 This page will also contain any current purchases
 The quote is based on an average price for an average 14sqm garden this price is then used to create a unique quote based on the users garden size.
 i.e 28sqm - 2 x price of 14 sqm
 ### Quote
+![quote!](/media/screenshots/quote.PNG "quote")
 This page will display the generated quote, it will also list other services that are available for purchase when the gardener visits their garden, these items are generally specialities so cannot be given as a guarenteed price without prior viewing of the space.
 The user will then be asked if they would like to proceed where they will be directed towards the payment page.
 ### Checkout
+![checkout!](/media/screenshots/checkout.PNG "checkout")
 This page will contain detail about the pricing of the service they are purchasing and a card input feature. The payment system is Stripe.
 ### Post checkout
 Users will be directed after purchase to the checkout success page, this page will list the price they paid, the subscription number and a contact number should they require help with their purchase.
 ### Management(ADMIN ONLY)
+![Admin page!](/media/screenshots/admin_manage.PNG "Admin page")
 This page allows admin users to add products to the quote page, showing users what other services are available post checkout.
 This page also shows the admin any on going orders which will need to be completed.
 The page also allows the admin to remove 'jobs' which have been completed.
@@ -189,6 +194,7 @@ There was no automated testing for this project. Each User Story was manually te
 The goal of this site is to streamline the quoting process for he company gardeners direct. I used word tracker to generate key words connected with 'Garden maintenance personal quote'
 The most common searches werent neccesarily related to the site due to quote having a few different meanings.
 ### Facebook
+![Facebook!](/media/screenshots/Gardeners_Direct_facebook.jpg "facebook")
 Below is a copy of the facebook mockup with links to the companys website and posts related to the occupation of the company.
 ### Newsletter
 On the homepage there is an area to sign up for a newsletter, this model collates emails for the owner to access whenever there are any announcements etc
