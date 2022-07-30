@@ -5,7 +5,31 @@
 
 {% block content %}
 
+<div class="col-lg-8">
+    
+    <div class="row gx-6 row-cols-1 row-cols-md-2">
+        <div class="card mb-5 mb-xl-0">
+            <div class="card-body p-5">
+                <div class="small text-uppercase fw-bold">
 
+                    <em class="bi bi-star-fill text-warning"></em>
+                    user:{{ person.user }}
+                </div>
+
+                <ul class="list-unstyled mb-4">
+                    <li class="mb-2">
+                        <strong>paid:{{ person.subscription_cost }}</strong>
+                    </li>
+                    <li class="mb-2">
+                        <strong>ord.no:{{ person.subscription_number }}</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
 
 
 {% endblock %}

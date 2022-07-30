@@ -4,7 +4,7 @@ from profiles import views
 
 
 urlpatterns = [
-    
-    path('', views.profile, name = 'profile'),
-    path('delete_profile/', views.delete_profile, name = 'delete_profile')
+
+    path('', views.profile, name='profile'),
+    path('delete_profile/', views.delete_profile, name='delete_profile')
 ]

@@ -26,7 +26,7 @@ def quote(request):
     template = 'quote.html'
     return render(request, template, context)
 
-
+ 
 @require_POST
 def cache_checkout_data(request):
 
@@ -54,7 +54,7 @@ def checkout_user(request):
         if form.is_valid():
             form.save()
         return redirect(reverse('checkout_success'))
-        
+              
     total = user_details.quote
     stripe_total = round(total *100)
     stripe.api_key = stripe_secret_key
@@ -91,9 +91,10 @@ def checkout_success(request):
         object_sub = sub_user_details(user=request.user, subscription_cost=user.quote, paid=True)
         object_sub.save()
         sweetify.success(request, title='Order Placed, we will be in touch to book a date')
-
+        person = object_sub
     template = 'checkout_success.html'
     context = {
+        'person': person
     }
 
     return render(request, template, context)

@@ -17,7 +17,7 @@ class sub_user_details(models.Model):
     
     
     subscription_number = models.CharField(max_length=32, null=False, editable= False, unique=True)
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     subscription_cost = models.FloatField(default=0)
     address = models.CharField(max_length=100,)
     paid = models.BooleanField(default=False,)
