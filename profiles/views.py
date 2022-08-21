@@ -48,4 +48,4 @@ def delete_profile(request):
     except User.DoesNotExist:
         sweetify.error(request, title='Profile does not exist')
 
-    return redirect(to='index')
+    return redirect('/')
