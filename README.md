@@ -33,9 +33,31 @@ User Stories (Admin)-
 * As an Admin, I want to be able to see users who have purchesed services
 * As an Admin, I want to be able to delete users orders whom have been completed
 
+User Story Planning - 
+
+![!UserStory Map](/media/screenshots/UserStoryMap.PNG)
+
+Admin Story Planning - 
+
+![Admin Story Map](/media/screenshots/adminUserStory.PNG)
+
+
+
+
 
 Agile methodology-
-* I tried to employ an agile method using a whiteboard where I would wipe off the task that had been completed in relation to the user story subsections. Although I tried to stick to it, I did find myself continueing with other tasks before completing the tasks that had been in the correct order
+* When planning the project I utilised github projects for the planning stage.
+
+![agile 1](/media/screenshots/first2.PNG)
+![agile 2](/media/screenshots/2nd3.PNG)
+![agile 3](/media/screenshots/final.PNG)
+
+
+WireFrames - 
+* When planning the look of the site I focused mainly on the homepage and checkout/quote pages as the focal point for the design/s
+
+![wireframeHomepage](/media/screenshots/homepage_wire.PNG)
+![wireframeQuote](/media/screenshots/quote_wire.PNG)
 
 ## Features
 ### HomePage
@@ -233,6 +255,10 @@ Profile - UserProfile Model items:
 - grass = models.BooleanField(default=False)
 - quote = models.FloatField(default=0, editable=True, blank=True)
 
+
+#### Schema
+![Data Schema](/media/screenshots/Schema.PNG)
+
 ## Technologies Used
 
 ### Languages
@@ -292,6 +318,12 @@ python3 manage.py runserver
 
 As this is my first time using AWS is opted to follow a user guide on the amazon web server website below is the attatched link
 [S3 bucket set-up](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
+
+## Credits
+
+Images used are taken from various users on - [unsplash](https://unsplash.com/)
+
+
 
 ## Future Development
 
